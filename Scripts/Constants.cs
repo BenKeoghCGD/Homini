@@ -13,4 +13,5 @@
 
     // UI
     public static float CompassWidth = 1000.0f;
+    public static float ScrollDelay = 0.05f;
 }
