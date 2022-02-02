@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    private TransitionManager _transitionManager;
+    TransitionManager _transitionManager;
 
     private void Start()
     {

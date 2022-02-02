@@ -501,6 +501,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5867966764584631477, guid: 5310fac038d980b4787f59e603aa07a9, type: 3}
+      propertyPath: fadeSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867966765561093408, guid: 5310fac038d980b4787f59e603aa07a9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 32767
+      objectReference: {fileID: 0}
     - target: {fileID: 5867966765585347630, guid: 5310fac038d980b4787f59e603aa07a9, type: 3}
       propertyPath: m_Name
       value: '[GLOBAL]'

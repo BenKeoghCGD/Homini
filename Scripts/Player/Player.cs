@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] CameraMode m_CameraMode = CameraMode.FIRST;
-    private CameraScript[] m_CameraScripts;
+    CameraScript[] m_CameraScripts;
 
     private void Start()
     {

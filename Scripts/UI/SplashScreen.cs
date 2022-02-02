@@ -4,13 +4,12 @@ using UnityEngine.Video;
 
 public class SplashScreen : MonoBehaviour
 {
-    private AsyncOperation sceneOperation;
-    public VideoPlayer splash;
-    private TransitionManager _transitionManager;
+    AsyncOperation sceneOperation;
+    TransitionManager _transitionManager;
+    [SerializeField] VideoPlayer splash;
 
     void Start()
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
         _transitionManager = GameObject.FindObjectOfType<TransitionManager>();
         StartCoroutine(beginAnim());
     }

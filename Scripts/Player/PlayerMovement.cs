@@ -2,11 +2,11 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    private CharacterController _controller;
-    private Vector3 _velocity;
-    private Transform _groundCheck;
-    private bool _grounded;
-    public LayerMask groundMask;
+    CharacterController _controller;
+    Vector3 _velocity;
+    Transform _groundCheck;
+    bool _grounded;
+    [SerializeField] LayerMask groundMask;
 
     private void Start()
     {

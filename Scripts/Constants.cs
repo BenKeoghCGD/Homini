@@ -10,4 +10,7 @@
     public static float PlayerWalkSpeed = 6f;
     public static float PlayerSprintSpeed = 12f;
     public static float PlayerJumpHeight = 3f;
+
+    // UI
+    public static float CompassWidth = 1000.0f;
 }

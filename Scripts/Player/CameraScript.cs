@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class CameraScript : MonoBehaviour
 {
-    public static Camera _cam;
-    public static GameObject _player;
-    public static CameraMode mode;
+    protected Camera _cam;
+    protected GameObject _player;
+    protected CameraMode mode;
 
     public void Start()
     {
@@ -15,6 +15,6 @@ public abstract class CameraScript : MonoBehaviour
 
     public CameraMode getMode() { return mode; }
 
-    public abstract void Init(GameObject player);
+    public virtual void Init(GameObject player) { _player = player; }
     public abstract void Run();
 }

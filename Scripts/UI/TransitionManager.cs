@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TransitionManager : MonoBehaviour
 {
-    public Image ui_Overlay, ui_Loading;
-    public float fadeSpeed = 0.5f, loadingSpeed = 2.0f;
-    public bool isFinished = true;
+    [SerializeField] Image ui_Overlay, ui_Loading;
+    [SerializeField] float fadeSpeed = 0.5f, loadingSpeed = 2.0f;
+    public static bool isFinished = true;
 
     // KEEPS [GLOBAL] ACTIVE
     private void Awake()
@@ -18,7 +18,7 @@ public class TransitionManager : MonoBehaviour
     }
 
 
-    private int currScene = -1;
+    int currScene = -1;
     private void Update()
     {
         ui_Loading.transform.localEulerAngles += new Vector3(0, 0, Time.deltaTime * loadingSpeed);
