@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        Inventory.invSlots = Inventory.capacity = 7;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         m_CameraScripts = GetComponentsInChildren<CameraScript>();

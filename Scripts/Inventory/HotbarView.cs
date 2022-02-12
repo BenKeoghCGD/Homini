@@ -12,19 +12,32 @@ public class HotbarView : InventoryView
     {
         foreach (ItemSlot it in itemSlots)
         {
-            if (it.slotID == activeSlot) it.highlighted = true;
-            else it.highlighted = false;
+            if (it.slotID == activeSlot)
+                it.highlighted = true;
+            else
+                it.highlighted = false;
             it.Refresh();
         }
 
-        for(int i = 1; i < itemSlots.Length + 1; i++) if(Input.GetKeyDown("" + i)) activeSlot = i-1;
         if (Input.GetAxisRaw("Mouse ScrollWheel") != 0)
         {
-            if (Input.GetAxisRaw("Mouse ScrollWheel") > 0f) activeSlot--;
+            if (Input.GetAxisRaw("Mouse ScrollWheel") > 0f)
+                activeSlot--;
             else activeSlot++;
         }
 
-        if (activeSlot >= itemSlots.Length) activeSlot = 0;
-        else if (activeSlot < 0) activeSlot = itemSlots.Length - 1;
+        if (activeSlot >= itemSlots.Length) 
+            activeSlot = 0;
+        else if (activeSlot < 0) 
+            activeSlot = itemSlots.Length - 1;
+    }
+
+    public override void useKeys()
+    {
+        for (int i = 1; i < itemSlots.Length + 1; i++)
+        {
+            if (Input.GetKeyDown("" + i))
+                activeSlot = i - 1;
+        }
     }
 }
