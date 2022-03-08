@@ -14,8 +14,7 @@ public class HotbarView : InventoryView
         {
             if (it.slotID == activeSlot)
                 it.highlighted = true;
-            else
-                it.highlighted = false;
+            else it.highlighted = false;
             it.Refresh();
         }
 

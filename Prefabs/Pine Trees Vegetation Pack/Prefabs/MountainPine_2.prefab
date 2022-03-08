@@ -94,9 +94,10 @@ GameObject:
   - component: {fileID: 4742600810339768}
   - component: {fileID: 205915919005745346}
   - component: {fileID: 136712089525417614}
+  - component: {fileID: 1816624840024637603}
   m_Layer: 0
   m_Name: MountainPine_2
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,6 +165,18 @@ CapsuleCollider:
   m_Height: 14
   m_Direction: 1
   m_Center: {x: 0, y: 7, z: 0}
+--- !u!114 &1816624840024637603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092891772321580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a7bc65da96de3448aaa0c935263f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1657954648950782
 GameObject:
   m_ObjectHideFlags: 0

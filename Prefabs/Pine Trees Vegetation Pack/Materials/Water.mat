@@ -72,14 +72,14 @@ Material:
     - _Mode: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _ScrollXSpeed: 0.6
-    - _ScrollYSpeed: 4.5
+    - _ScrollXSpeed: 1
+    - _ScrollYSpeed: -1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.014597754, g: 0.14525266, b: 0.19852942, a: 0.778}
+    - _Color: {r: 0, g: 0.38099715, b: 1, a: 0.23921569}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
