@@ -2,6 +2,7 @@
 
 public class FPCameraController : CameraScript
 {
+    [SerializeField] GameObject waterOverlay;
     public override void Init(GameObject player)
     {
         mode = CameraMode.FIRST;
@@ -21,5 +22,7 @@ public class FPCameraController : CameraScript
 
         _player.transform.Rotate(Vector3.up * mouseX);
         transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+
+        waterOverlay.SetActive(transform.position.y <= 15f);
     }
 }

@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic;
+using NMaterial;
 
 public class Player : MonoBehaviour
 {
@@ -7,11 +7,15 @@ public class Player : MonoBehaviour
     CameraScript[] m_CameraScripts;
     Raycasting m_Raycasting;
     PlantManager _pm;
+    InventoryManager _im;
+
+    public GameObject interactHover;
 
     private void Start()
     {
+        interactHover.SetActive(false);
         _pm = FindObjectOfType<PlantManager>();
-        Inventory.invSlots = Inventory.capacity = 7;
+        _im = FindObjectOfType<InventoryManager>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         m_CameraScripts = GetComponentsInChildren<CameraScript>();
@@ -23,9 +27,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         if (Settings.gamePaused) return;
-
-        /*if (Input.GetKeyDown(KeyCode.C))
-            m_CameraMode = (int)m_CameraMode == 2 ? 0 : m_CameraMode + 1;*/
 
         if (m_Raycasting != null)
             m_Raycasting.Run();
@@ -41,19 +42,20 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log("Logging");
             Vector3 groundPos = new Vector3(transform.position.x, Terrain.activeTerrain.SampleHeight(transform.position), transform.position.z);
             _pm.GeneratePlant(groundPos);
         }
 
+        IInteractable curObj = null;
         if (m_Raycasting.currentTarget != null)
         {
-            if(m_Raycasting.currentTarget.GetComponent<I_Tree>() != null)
-            {
-                // LOOKING AT TREE
-                if (Input.GetKeyDown(KeyCode.E)) _pm.HarvestTree(m_Raycasting.currentTarget);
-            }
+            curObj = m_Raycasting.currentTarget.GetComponent<IInteractable>();
+            if (m_Raycasting.currentTarget.GetComponent<Tree>() != null && _im.currentItem != null)
+                curObj.canInteract = _im.currentItem.iid == Mat.getIID(Materials.AXE);
+            if (curObj.canInteract && Input.GetKeyDown(KeyCode.E))
+                curObj.Interact();
         }
+        interactHover.SetActive(m_Raycasting.currentTarget != null && curObj.canInteract);
     }
 }
 

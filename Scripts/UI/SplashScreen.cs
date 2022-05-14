@@ -4,22 +4,21 @@ using UnityEngine.Video;
 
 public class SplashScreen : MonoBehaviour
 {
-    AsyncOperation sceneOperation;
     TransitionManager _transitionManager;
     [SerializeField] VideoPlayer splash;
 
     void Start()
     {
         _transitionManager = GameObject.FindObjectOfType<TransitionManager>();
-        StartCoroutine(beginAnim());
+        StartCoroutine(BeginAnim());
     }
 
-    private IEnumerator beginAnim()
+    private IEnumerator BeginAnim()
     {
         splash.Prepare();
-        yield return _transitionManager.fadeOut();
+        yield return _transitionManager.FadeOut();
         splash.Play();
         yield return new WaitForSecondsRealtime((float)splash.length * 1.33f);
-        yield return _transitionManager.transition(1);
+        yield return _transitionManager.Transition(1);
     }
 }

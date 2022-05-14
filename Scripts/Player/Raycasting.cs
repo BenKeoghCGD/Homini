@@ -2,19 +2,18 @@
 
 public class Raycasting : MonoBehaviour
 {
-    public float pickupDistance = 100f;
-    public GameObject currentTarget = null;
+    float pickupDistance = 10f;
+    public GameObject currentTarget { get; private set;}
 
     public void Run()
     {
         Ray ray = GetComponent<Camera>().ViewportPointToRay(Vector3.one * 0.5f);
-        RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, pickupDistance))
+        if (Physics.Raycast(ray, out RaycastHit hit, pickupDistance))
         {
             bool hasHitInteractable = false;
 
-            if (hit.collider.tag == "Interactable")
+            if (hit.collider.gameObject.GetComponent<IInteractable>() != null)
             {
                 hasHitInteractable = true;
                 currentTarget = hit.collider.gameObject;

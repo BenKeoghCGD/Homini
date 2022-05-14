@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class TransitionManager : MonoBehaviour
 {
-    [SerializeField] Image ui_Overlay, ui_Loading;
-    [SerializeField] float fadeSpeed = 0.5f, loadingSpeed = 2.0f;
+    public Image ui_Overlay, ui_Loading;
+    public float fadeSpeed = 0.5f, loadingSpeed = 2.0f;
     public static bool isFinished = true;
 
     // KEEPS [GLOBAL] ACTIVE
@@ -22,11 +22,11 @@ public class TransitionManager : MonoBehaviour
     private void Update()
     {
         ui_Loading.transform.localEulerAngles += new Vector3(0, 0, Time.deltaTime * loadingSpeed);
-        if (currScene != SceneManager.GetActiveScene().buildIndex) StartCoroutine(fadeOut());
+        if (currScene != SceneManager.GetActiveScene().buildIndex) StartCoroutine(FadeOut());
         currScene = SceneManager.GetActiveScene().buildIndex;
     }
 
-    public IEnumerator fadeOut()
+    public IEnumerator FadeOut()
     {
         while(ui_Overlay.color.a > 0)
         {
@@ -34,9 +34,10 @@ public class TransitionManager : MonoBehaviour
             yield return null;
         }
         isFinished = true;
+        ui_Overlay.gameObject.SetActive(false);
     }
 
-    public IEnumerator fadeIn()
+    public IEnumerator FadeIn()
     {
         while (ui_Overlay.color.a < 1)
         {
@@ -45,18 +46,20 @@ public class TransitionManager : MonoBehaviour
         }
     }
 
-    public IEnumerator transition(int sceneIndex)
+    public IEnumerator Transition(int sceneIndex)
     {
-        if(isFinished)
+        if (isFinished)
         {
+            ui_Overlay.gameObject.SetActive(true);
             isFinished = false;
             ui_Loading.gameObject.SetActive(true);
             yield return null;
             AsyncOperation _transitionOperation = SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Single);
             _transitionOperation.allowSceneActivation = false;
-            yield return fadeIn();
+            yield return FadeIn();
             _transitionOperation.allowSceneActivation = true;
             ui_Loading.gameObject.SetActive(false);
         }
+        else Debug.Log("Not Finished");
     }
 }

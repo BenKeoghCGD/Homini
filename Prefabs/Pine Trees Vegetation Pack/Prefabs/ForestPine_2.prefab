@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4347471705771458}
   - component: {fileID: 205190665891084396}
   - component: {fileID: 136193603743623652}
-  - component: {fileID: -3104393910529969800}
+  - component: {fileID: 2653286196688655678}
   m_Layer: 0
   m_Name: ForestPine_2
   m_TagString: Interactable
@@ -330,7 +330,7 @@ CapsuleCollider:
   m_Height: 18
   m_Direction: 1
   m_Center: {x: 0, y: 9, z: 0}
---- !u!114 &-3104393910529969800
+--- !u!114 &2653286196688655678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1864663576767650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a7bc65da96de3448aaa0c935263f60, type: 3}
+  m_Script: {fileID: 11500000, guid: cd555e676a970ea4d8d20eb39aa02a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1982794299928436
